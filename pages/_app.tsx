@@ -18,12 +18,15 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 export const NETWORK = RPC;
 
 import type { AppProps } from "next/app";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 
 import ActiveLink from "../components/ActiveLink";
 import { RPC } from "../utils/openbook";
+import Sidebar from "../components/Sidebar";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
   const network = WalletAdapterNetwork.Mainnet;
@@ -38,24 +41,30 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 
   return (
-    <ConnectionProvider endpoint={NETWORK}>
+    <ConnectionProvider endpoint={endpoint}>
       <ClientWalletProvider wallets={wallets}>
         <ReactUIWalletModalProviderDynamic>
           <Toaster position="bottom-left" reverseOrder={true} />
-
-          <div className={`${inter.className} dark`}>
-            <WalletMultiButton className="btn" />
-            <div className="w-full px-4 py-2 border-b-2">
-              <div className="flex flex-row flex-wrap space-x-4">
-                <div className="inline">
-                  <ActiveLink href="/">Markets</ActiveLink>
-                </div>
-                <div className="inline">
-                  <ActiveLink href="/create_market">Create Market</ActiveLink>
-                </div>
+          <div className="relative flex h-screen">
+            <Sidebar />
+            <div className="relative flex flex-col flex-1 font-raleway dark overflow-x-scroll">
+              <NavBar />
+              {/* <div className="mt-5">
+                <WalletMultiButton />
               </div>
+              <div className="w-full px-4 py-2 border-b-2">
+                <div className="flex flex-row flex-wrap space-x-4">
+                  <div className="inline">
+                    <ActiveLink href="/">Markets</ActiveLink>
+                  </div>
+                  <div className="inline">
+                    <ActiveLink href="/create_market">Create Market</ActiveLink>
+                  </div>
+                </div>
+              </div> */}
+              <Component {...pageProps} />
+              <Footer className="sticky  bottom-0 z-10" />
             </div>
-            <Component {...pageProps} />
           </div>
         </ReactUIWalletModalProviderDynamic>
       </ClientWalletProvider>

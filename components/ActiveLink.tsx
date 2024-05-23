@@ -5,7 +5,7 @@ function ActiveLink({ children, href }) {
 
   let className = "";
   if (router.asPath === href)
-    className = `${className} underline underline-offset-4`;
+    className = `${className} underline underline-offset-4 font-bold`;
 
   const handleClick = (e) => {
     e.preventDefault();

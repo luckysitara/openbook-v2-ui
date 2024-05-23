@@ -25,6 +25,7 @@ import { PublicKey } from "@solana/web3.js";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { ButtonState } from "../components/Button";
 import { toast } from "react-hot-toast";
+import Footer from "../components/Footer";
 
 function priceData(key) {
   const shiftedValue = key.shrn(64); // Shift right by 64 bits
@@ -152,11 +153,11 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Openbook</title>
+        <title>Openbook DEX v3</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-full h-full relative ">
+      <div className="w-full overflow-y-scroll relative ">
         <div className="flex flex-col gap-3 pb-2.5">
           <Table
             isStriped
@@ -295,47 +296,6 @@ export default function Home() {
         ) : (
           <h1 className="text-center">This market has been closed!</h1>
         )}
-
-        <footer className="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
-          <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              © 2023{" "}
-              <a
-                href="https://twitter.com/openbookdex"
-                className="hover:underline"
-              >
-                Openbook Team
-              </a>
-              . All Rights Reserved.
-            </span>
-            <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-              <li>
-                <a
-                  href="https://twitter.com/openbookdex"
-                  className="mr-4 hover:underline md:mr-6"
-                >
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/openbook-dex"
-                  className="mr-4 hover:underline md:mr-6"
-                >
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a
-                  href="gofuckyourselfifyouwanttocontactus@weloveyou.shit"
-                  className="hover:underline"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-        </footer>
       </div>
     </div>
   );
