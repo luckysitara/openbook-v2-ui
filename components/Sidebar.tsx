@@ -18,8 +18,8 @@ function Sidebar() {
           <div className="flex flex-col items-center w-full mt-3 border-t border-gray-700">
             <a
               className={`flex items-center w-full h-12 px-3 mt-2 rounded ${
-                isActivePath("/") ? "bg-[#372f42] text-[#dba2ff]" : ""
-              } hover:bg-[#372f42] hover:text-[#dba2ff] transition-all duration-200`}
+                isActivePath("/") ? "bg-[#372f42] text-violet-400" : ""
+              } hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200`}
               href="/"
             >
               <svg
@@ -39,7 +39,7 @@ function Sidebar() {
               <span className="ml-2 text-sm hidden lg:block">Markets</span>
             </a>
             <a
-              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-[#372f42] hover:text-[#dba2ff] transition-all duration-200"
+              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
               href="#"
             >
               <svg
@@ -63,9 +63,9 @@ function Sidebar() {
             <a
               className={`flex items-center w-full h-12 px-3 mt-2 rounded ${
                 isActivePath("/create_market")
-                  ? "bg-[#372f42] text-[#dba2ff]"
+                  ? "bg-[#372f42] text-violet-400"
                   : ""
-              } hover:bg-[#372f42] hover:text-[#dba2ff] transition-all duration-200`}
+              } hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200`}
               href="/create_market"
             >
               <svg
@@ -87,7 +87,7 @@ function Sidebar() {
               </span>
             </a>
             <a
-              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-[#372f42] hover:text-[#dba2ff] transition-all duration-200"
+              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
               href="https://neif.org"
               target="_blank"
             >
@@ -112,7 +112,7 @@ function Sidebar() {
           </div>
           <div className="flex flex-col items-center w-full mt-2 border-t border-gray-700">
             <a
-              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-[#372f42] hover:text-[#dba2ff] transition-all duration-200"
+              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
               href="#"
             >
               <svg
@@ -134,7 +134,7 @@ function Sidebar() {
               </span>
             </a>
             <a
-              className="flex items-center w-full h-12 px-3 rounded hover:bg-[#372f42] hover:text-[#dba2ff] transition-all duration-200"
+              className="flex items-center w-full h-12 px-3 rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
               href="#"
             >
               <svg
@@ -156,7 +156,7 @@ function Sidebar() {
               </span>
             </a>
             <a
-              className="relative flex items-center w-full h-12 px-3  rounded hover:bg-[#372f42] hover:text-[#dba2ff] transition-all duration-200"
+              className="relative flex items-center w-full h-12 px-3  rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
               href="#"
             >
               <svg
@@ -181,7 +181,7 @@ function Sidebar() {
           </div>
         </div>
         <a
-          className="flex items-center justify-center w-full h-16 mt-auto bg-[#372f42] hover:text-[#dba2ff] cursor-pointer transition-all duration-200"
+          className="flex items-center justify-center w-full h-16 mt-auto bg-[#372f42] hover:text-violet-400 cursor-pointer transition-all duration-200"
           href="#"
         >
           <svg

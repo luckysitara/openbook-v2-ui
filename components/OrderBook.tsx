@@ -50,8 +50,8 @@ export default function OrderBook({ asks, bids, market }: OrderBookProps) {
   return (
     <div className=" h-[26.5vh]">
       <div>
-        <h3 className="text-center mt-8 mb-5 text-xl ">
-          ASKS -------- The Book -------- BIDS
+        <h3 className="text-center mt-8 mb-5 text-2xl text-violet-400 font-bold ">
+          OrderBook
         </h3>
       </div>
       <div className="grid grid-cols-2 gap-2 border-2 overflow-y-scroll h-full">

@@ -8,6 +8,7 @@ import {
   getKeyValue,
 } from "@nextui-org/react";
 import { LinkIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
 type Column = {
   key: string;
@@ -34,7 +35,7 @@ export default function MarketTable({
 }: MarketTableProps) {
   const linkedPk = (pk: string) => (
     <div>
-      {pk}
+      {pk.length > 15 ? `${pk.substring(0, 10)}...` : pk}
       <a
         href={`https://solscan.io/account/${pk}`}
         target="_blank"
@@ -44,40 +45,51 @@ export default function MarketTable({
       </a>
     </div>
   );
+  const [selectedKey, setSelectedKey] = useState("");
+
+  const handleRowClick = (key: any) => {
+    setSelectedKey(key.toString());
+    fetchMarket(key.toString());
+  };
 
   return (
-    <>
-      <div className="flex flex-col gap-3 pb-2.5 w-[80%] overflow-y-scroll">
-        <Table
-          isStriped
-          selectionMode="single"
-          aria-label="Markets"
-          onRowAction={async (key) => fetchMarket(key.toString())}
-          defaultSelectedKeys={markets[0].market}
-        >
-          <TableHeader
-            columns={columns}
-            className="text-[#cec9e0] bg-[#281a35]"
+    <Table
+      isStriped
+      selectionMode="single"
+      aria-label="Markets"
+      // onRowAction={async (key) => fetchMarket(key.toString())}
+      defaultSelectedKeys={markets[0].market}
+      className=" w-full table-fixed rounded-sm "
+    >
+      <TableHeader columns={columns} className="rounded-sm">
+        {(column) => (
+          <TableColumn
+            key={column.key}
+            className=" p-2 text-[#ebe8f5] bg-[#2f2838] font-bold"
           >
-            {(column) => (
-              <TableColumn key={column.key}>{column.label}</TableColumn>
+            {column.label}
+          </TableColumn>
+        )}
+      </TableHeader>
+      <TableBody items={markets}>
+        {(item) => (
+          <TableRow
+            key={item.market}
+            className={`cursor-pointer striped-row hover:text-[#9b83eb]  ${
+              selectedKey === item.market ? "!text-red-500" : ""
+            }`}
+            onClick={() => handleRowClick(item.market)}
+          >
+            {(columnKey) => (
+              <TableCell className="overflow-hidden text-ellipsis ">
+                {columnKey == "name"
+                  ? getKeyValue(item, columnKey)
+                  : linkedPk(getKeyValue(item, columnKey))}
+              </TableCell>
             )}
-          </TableHeader>
-          <TableBody items={markets}>
-            {(item) => (
-              <TableRow key={item.market}>
-                {(columnKey) => (
-                  <TableCell>
-                    {columnKey == "name"
-                      ? getKeyValue(item, columnKey)
-                      : linkedPk(getKeyValue(item, columnKey))}
-                  </TableCell>
-                )}
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
-    </>
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
   );
 }

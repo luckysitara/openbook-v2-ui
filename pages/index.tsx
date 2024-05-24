@@ -35,7 +35,7 @@ export default function Home() {
   const columns = [
     {
       key: "name",
-      label: "NAME",
+      label: "Name",
     },
     {
       key: "market",
@@ -118,18 +118,20 @@ export default function Home() {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="flex flex-col w-full h-full relative  ">
-          <div className="flex h-[58.5vh] p-2">
-            <MarketTable
-              columns={columns}
-              fetchMarket={fetchMarket}
-              markets={markets}
-            />
-            {market.asks ? (
-              <MarketDetail market={market} crankMarket={crankMarket} />
-            ) : (
-              <Loader />
-            )}
+        <div className="flex flex-col w-full h-full relative text-[#b2aacd] bg-[#1e1924] ">
+          <div className="flex h-[58.5vh] ">
+            <div className="w-full table-fixed overflow-y-scroll  ">
+              <h1 className="font-bold p-5 text-4xl text-violet-400 sticky top-0 z-50 bg-[#1e1924] border-b border-gray-800">
+                Open Markets
+              </h1>
+              <MarketTable
+                columns={columns}
+                fetchMarket={fetchMarket}
+                markets={markets}
+              />
+            </div>
+
+            {market.asks ? <MarketDetail market={market} /> : <Loader />}
           </div>
           {market.asks ? (
             <div>
