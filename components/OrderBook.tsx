@@ -54,60 +54,79 @@ export default function OrderBook({ asks, bids, market }: OrderBookProps) {
           OrderBook
         </h3>
       </div>
-      <div className="grid grid-cols-2 gap-2 border-2 overflow-y-scroll h-full">
-        <Table isStriped selectionMode="single" aria-label="OrderBook">
-          <TableHeader className="text-left" columns={columnsBook}>
-            {(column) => (
-              <TableColumn key={column.key}>{column.label}</TableColumn>
-            )}
-          </TableHeader>
-          <TableBody items={asks}>
-            {(item) => (
-              <TableRow key={priceData(item.key)}>
-                {(columnKey) => (
-                  <TableCell>
-                    {columnKey == "owner"
-                      ? getKeyValue(item, columnKey)
-                          .toString()
-                          .substring(0, 4) +
-                        ".." +
-                        getKeyValue(item, columnKey).toString().slice(-4)
-                      : columnKey == "quantity"
-                      ? getKeyValue(item, columnKey).toString()
-                      : priceDataToUI(item.key)}
-                  </TableCell>
-                )}
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+      <div className="grid grid-cols-2 gap-2 border-t border-gray-800 overflow-y-scroll h-full	">
+        <div>
+          <Table
+            isStriped
+            selectionMode="single"
+            aria-label="OrderBook"
+            className="border-r border-gray-800  min-h-[100%]"
+          >
+            <TableHeader className="text-left" columns={columnsBook}>
+              {(column) => (
+                <TableColumn
+                  key={column.key}
+                  className="text-[#d5cfd5] font-bold"
+                >
+                  {column.label}
+                </TableColumn>
+              )}
+            </TableHeader>
+            <TableBody items={asks}>
+              {(item) => (
+                <TableRow key={priceData(item.key)}>
+                  {(columnKey) => (
+                    <TableCell>
+                      {columnKey == "owner"
+                        ? getKeyValue(item, columnKey)
+                            .toString()
+                            .substring(0, 4) +
+                          ".." +
+                          getKeyValue(item, columnKey).toString().slice(-4)
+                        : columnKey == "quantity"
+                        ? getKeyValue(item, columnKey).toString()
+                        : priceDataToUI(item.key)}
+                    </TableCell>
+                  )}
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
 
-        <Table isStriped selectionMode="single" aria-label="OrderBook">
-          <TableHeader columns={columnsBook}>
-            {(column) => (
-              <TableColumn key={column.key}>{column.label}</TableColumn>
-            )}
-          </TableHeader>
-          <TableBody items={bids}>
-            {(item) => (
-              <TableRow key={priceData(item.key)}>
-                {(columnKey) => (
-                  <TableCell>
-                    {columnKey == "owner"
-                      ? getKeyValue(item, columnKey)
-                          .toString()
-                          .substring(0, 4) +
-                        ".." +
-                        getKeyValue(item, columnKey).toString().slice(-4)
-                      : columnKey == "quantity"
-                      ? getKeyValue(item, columnKey).toString()
-                      : priceDataToUI(item.key)}
-                  </TableCell>
-                )}
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+        <div>
+          <Table isStriped selectionMode="single" aria-label="OrderBook">
+            <TableHeader columns={columnsBook}>
+              {(column) => (
+                <TableColumn
+                  key={column.key}
+                  className="text-[#d5cfd5] font-bold"
+                >
+                  {column.label}
+                </TableColumn>
+              )}
+            </TableHeader>
+            <TableBody items={bids}>
+              {(item) => (
+                <TableRow key={priceData(item.key)}>
+                  {(columnKey) => (
+                    <TableCell>
+                      {columnKey == "owner"
+                        ? getKeyValue(item, columnKey)
+                            .toString()
+                            .substring(0, 4) +
+                          ".." +
+                          getKeyValue(item, columnKey).toString().slice(-4)
+                        : columnKey == "quantity"
+                        ? getKeyValue(item, columnKey).toString()
+                        : priceDataToUI(item.key)}
+                    </TableCell>
+                  )}
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </div>
   );

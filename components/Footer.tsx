@@ -4,7 +4,7 @@ function Footer({ className }) {
       className={`flex bg-white  dark:bg-[#1E1924]  p-4 justify-between ${className}`}
     >
       <span className="text-sm text-[#9B92B2] sm:text-center dark:text-gray-400">
-        © 2023{" "}
+        © 2024{" "}
         <a
           href="https://twitter.com/openbookdex"
           className="hover:text-[#ab82ae]"

@@ -113,7 +113,7 @@ function Sidebar() {
           <div className="flex flex-col items-center w-full mt-2 border-t border-gray-700">
             <a
               className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
-              href="#"
+              href="/comingsoon"
             >
               <svg
                 className="w-6 h-6 stroke-current"
@@ -135,7 +135,7 @@ function Sidebar() {
             </a>
             <a
               className="flex items-center w-full h-12 px-3 rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
-              href="#"
+              href="/comingsoon"
             >
               <svg
                 className="w-6 h-6 stroke-current"
@@ -157,7 +157,7 @@ function Sidebar() {
             </a>
             <a
               className="relative flex items-center w-full h-12 px-3  rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
-              href="#"
+              href="/comingsoon"
             >
               <svg
                 className="w-6 h-6 stroke-current"

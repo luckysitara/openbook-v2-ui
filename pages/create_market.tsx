@@ -90,24 +90,24 @@ const CreateMarket = () => {
   };
 
   return (
-    <form className="p-4">
+    <form className="p-4 text-[#b2aacd] bg-[#1e1924]">
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base font-semibold leading-7 text-white-900">
+          <h2 className=" leading-7 font-bold p-5 text-5xl text-violet-400 ">
             Create a market
           </h2>
-          <p className="mt-1 text-sm leading-6 text-grey-600">
+          <p className="mt-1 text-sm leading-6 text-grey-600 px-5 w-[70%]">
             You will be able to create a permissioned or permissionles market.
             You will need at least 3 SOL in your account. There is 1 SOL fee for
             creating a market using this UI. Run it locally or fork it to avoid
             the fee.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 px-5">
             <div className="sm:col-span-4">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Name
               </label>
@@ -115,7 +115,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setName(e.target.value)}
-                  className="block w-full rounded-md py-1.5 pl-2  text-black font-bold shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -123,7 +123,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="quote-mint"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Quote Mint
               </label>
@@ -131,7 +131,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setQuoteMint(new PublicKey(e.target.value))}
-                  className="block w-full rounded-md  py-1.5 pl-2 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-black-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -139,7 +139,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Base Mint
               </label>
@@ -147,7 +147,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setBaseMint(new PublicKey(e.target.value))}
-                  className="block w-full rounded-md border-0 py-1.5 pl-2  text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -155,7 +155,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="quote-mint"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Quote Lot Size
               </label>
@@ -163,7 +163,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setQuoteLotSize(e.target.value)}
-                  className="block w-full rounded-md  py-1.5 pl-2 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-black-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -171,7 +171,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Base Lot Size
               </label>
@@ -179,7 +179,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setBaseLotSize(e.target.value)}
-                  className="block w-full rounded-md border-0 py-1.5 pl-2  text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -187,7 +187,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="quote-mint"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Maker Fee
               </label>
@@ -195,7 +195,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setMakerFee(e.target.value)}
-                  className="block w-full rounded-md  py-1.5 pl-2 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-black-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -203,7 +203,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Taker Fee
               </label>
@@ -211,7 +211,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setTakerFee(e.target.value)}
-                  className="block w-full rounded-md border-0 py-1.5 pl-2  text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -219,7 +219,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-4">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Time Expiracy (Only for markets that can be closed)
               </label>
@@ -227,7 +227,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setTimeExpiry(e.target.value)}
-                  className="block w-full rounded-md border-0 py-1.5 pl-2  text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -235,7 +235,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="quote-mint"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Oracle A (Optional)
               </label>
@@ -243,7 +243,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setOracleA(new PublicKey(e.target.value))}
-                  className="block w-full rounded-md  py-1.5 pl-2 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-black-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -251,7 +251,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Oracle B (Optional)
               </label>
@@ -259,7 +259,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setOracleB(new PublicKey(e.target.value))}
-                  className="block w-full rounded-md border-0 py-1.5 pl-2  text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -267,7 +267,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="quote-mint"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Max Staleness Slots (Optional)
               </label>
@@ -275,7 +275,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setMaxStalenessSlots(e.target.value)}
-                  className="block w-full rounded-md  py-1.5 pl-2 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-black-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -283,7 +283,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Configuration Filter (Optional)
               </label>
@@ -291,7 +291,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setConfFilter(e.target.value)}
-                  className="block w-full rounded-md border-0 py-1.5 pl-2  text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -299,7 +299,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="quote-mint"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Open Orders Admin (Permissioned Markets)
               </label>
@@ -309,7 +309,7 @@ const CreateMarket = () => {
                   onChange={(e) =>
                     setOpenOrdersAdmin(new PublicKey(e.target.value))
                   }
-                  className="block w-full rounded-md  py-1.5 pl-2 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-black-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -317,7 +317,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Consume Events Admin (Permissioned Markets)
               </label>
@@ -327,7 +327,7 @@ const CreateMarket = () => {
                   onChange={(e) =>
                     setConsumeEventsAdmin(new PublicKey(e.target.value))
                   }
-                  className="block w-full rounded-md border-0 py-1.5 pl-2  text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -335,7 +335,7 @@ const CreateMarket = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-white-900"
+                className="block text-sm font-semibold leading-6 text-white-900"
               >
                 Close Market Admin (Permissioned Markets)
               </label>
@@ -345,7 +345,7 @@ const CreateMarket = () => {
                   onChange={(e) =>
                     setCloseMarketAdmin(new PublicKey(e.target.value))
                   }
-                  className="block w-full rounded-md border-0 py-1.5 pl-2  text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -357,7 +357,7 @@ const CreateMarket = () => {
         <button
           type="submit"
           onClick={(e: any) => handleSubmit(e)}
-          className="rounded-md bg-indigo-600 px-3 py-2 text-xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-md bg-violet-600 px-5 py-2 text-sm text-white font-semibold hover:bg-violet-700 transition-all duration-200 ml-3"
         >
           Create Market
         </button>
