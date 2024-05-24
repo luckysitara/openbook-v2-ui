@@ -47,14 +47,18 @@ export default function MarketTable({
 
   return (
     <>
-      <div className="flex flex-col gap-3 pb-2.5">
+      <div className="flex flex-col gap-3 pb-2.5 w-[80%] overflow-y-scroll">
         <Table
           isStriped
           selectionMode="single"
           aria-label="Markets"
           onRowAction={async (key) => fetchMarket(key.toString())}
+          defaultSelectedKeys={markets[0].market}
         >
-          <TableHeader columns={columns}>
+          <TableHeader
+            columns={columns}
+            className="text-[#cec9e0] bg-[#281a35]"
+          >
             {(column) => (
               <TableColumn key={column.key}>{column.label}</TableColumn>
             )}

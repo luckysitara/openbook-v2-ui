@@ -3,7 +3,7 @@ import { nameToString } from "@openbook-dex/openbook-v2";
 export default function MarketDetail({ market, crankMarket }) {
   return (
     <>
-      <div className="grid grid-cols-2 gap-2 text-center border-r-4 border-b-4 border-l-4">
+      <div className="grid grid-cols-2 gap-2 text-center border-r-4 border-b-4 border-l-4 w-[20%] overflow-x-scroll">
         <div className="">
           <p className="font-bold">Name </p>
           {market.asks ? nameToString(market.name) : ""}
@@ -38,12 +38,12 @@ export default function MarketDetail({ market, crankMarket }) {
           {market.asks ? market.quoteDecimals : ""}
         </div>
       </div>
-      <button
+      {/* <button
         className="items-center text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         onClick={(e: any) => crankMarket()}
       >
         CRANK
-      </button>
+      </button> */}
     </>
   );
 }

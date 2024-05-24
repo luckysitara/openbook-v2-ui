@@ -118,16 +118,21 @@ export default function Home() {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="w-full overflow-y-scroll relative ">
-          <MarketTable
-            columns={columns}
-            fetchMarket={fetchMarket}
-            markets={markets}
-          />
+        <div className="flex flex-col w-full h-full relative  ">
+          <div className="flex h-[58.5vh] p-2">
+            <MarketTable
+              columns={columns}
+              fetchMarket={fetchMarket}
+              markets={markets}
+            />
+            {market.asks ? (
+              <MarketDetail market={market} crankMarket={crankMarket} />
+            ) : (
+              <Loader />
+            )}
+          </div>
           {market.asks ? (
             <div>
-              <MarketDetail market={market} crankMarket={crankMarket} />
-
               <OrderBook market={market} asks={asks} bids={bids} />
             </div>
           ) : (
