@@ -1,31 +1,19 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  getKeyValue,
-} from "@nextui-org/react";
 
 import React from "react";
 import { fetchData, getMarket } from "../utils/openbook";
 import { BN } from "@coral-xyz/anchor";
-
-import { LinkIcon } from "@heroicons/react/24/outline";
-import {
-  MarketAccount,
-  nameToString,
-  priceLotsToUi,
-} from "@openbook-dex/openbook-v2";
+import { MarketAccount } from "@openbook-dex/openbook-v2";
 import { useOpenbookClient } from "../hooks/useOpenbookClient";
 import { PublicKey } from "@solana/web3.js";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { ButtonState } from "../components/Button";
 import { toast } from "react-hot-toast";
-import Footer from "../components/Footer";
+import MarketTable from "../components/MarketTable";
+import MarketDetail from "../components/MarketDetail";
+import OrderBook from "../components/OrderBook";
+import Loader from "../components/Loader";
 
 function priceData(key) {
   const shiftedValue = key.shrn(64); // Shift right by 64 bits
@@ -33,7 +21,7 @@ function priceData(key) {
 }
 
 export default function Home() {
-  const { publicKey, signTransaction, connected, wallet } = useWallet();
+  // const { publicKey, signTransaction, connected, wallet } = useWallet();
   const [asks, setAsks] = useState([]);
   const [bids, setBids] = useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
@@ -42,7 +30,7 @@ export default function Home() {
   ]);
   const [market, setMarket] = useState({} as MarketAccount);
   const [marketPubkey, setMarketPubkey] = useState(PublicKey.default);
-  const [txState, setTxState] = React.useState<ButtonState>("initial");
+  // const [txState, setTxState] = React.useState<ButtonState>("initial");
 
   const columns = [
     {
@@ -63,41 +51,24 @@ export default function Home() {
     },
   ];
 
-  const columnsBook = [
-    {
-      key: "owner",
-      label: "OWNER",
-    },
-    {
-      key: "quantity",
-      label: "SIZE",
-    },
-    {
-      key: "key",
-      label: "PRICE",
-    },
-  ];
-
   const openbookClient = useOpenbookClient();
 
   useEffect(() => {
+    setIsLoading(true);
     fetchData()
       .then((res) => {
         setMarkets(res);
+
         fetchMarket(res[0].market);
+        setIsLoading(false);
         setMarketPubkey(new PublicKey(res[0].market));
       })
       .catch((e) => {
         console.log(e);
       });
+    console.log("markets", markets);
+    console.log("markets", markets);
   }, []);
-
-  function priceDataToUI(key) {
-    const shiftedValue = key.shrn(64); // Shift right by 64 bits
-    const priceLots = shiftedValue.toNumber(); // Convert BN to a regular number
-
-    return priceLotsToUi(market, priceLots);
-  }
 
   const fetchMarket = async (key: string) => {
     const market = await getMarket(openbookClient, key);
@@ -120,19 +91,6 @@ export default function Home() {
     });
     setBids(bids);
   };
-
-  const linkedPk = (pk: string) => (
-    <div>
-      {pk}
-      <a
-        href={`https://solscan.io/account/${pk}`}
-        target="_blank"
-        className="pl-2"
-      >
-        <LinkIcon className="w-4 h-4 inline" />
-      </a>
-    </div>
-  );
 
   const crankMarket = async () => {
     let accountsToConsume = await openbookClient.getAccountsToConsume(market);
@@ -157,146 +115,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-full overflow-y-scroll relative ">
-        <div className="flex flex-col gap-3 pb-2.5">
-          <Table
-            isStriped
-            selectionMode="single"
-            aria-label="Markets"
-            onRowAction={async (key) => fetchMarket(key.toString())}
-          >
-            <TableHeader columns={columns}>
-              {(column) => (
-                <TableColumn key={column.key}>{column.label}</TableColumn>
-              )}
-            </TableHeader>
-            <TableBody items={markets}>
-              {(item) => (
-                <TableRow key={item.market}>
-                  {(columnKey) => (
-                    <TableCell>
-                      {columnKey == "name"
-                        ? getKeyValue(item, columnKey)
-                        : linkedPk(getKeyValue(item, columnKey))}
-                    </TableCell>
-                  )}
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </div>
-
-        {market.asks ? (
-          <div>
-            <div className="grid grid-cols-2 gap-2 text-center border-r-4 border-b-4 border-l-4">
-              <div className="">
-                <p className="font-bold">Name </p>
-                {market.asks ? nameToString(market.name) : ""}
-                <p className="font-bold">Base Mint </p>
-                {market.asks ? market.baseMint.toString() : ""}
-                <p className="font-bold">Quote Mint </p>
-                {market.asks ? market.quoteMint.toString() : ""}
-                <p className="font-bold">Bids </p>
-                {market.asks ? market.bids.toString() : ""}
-                <p className="font-bold">Asks </p>
-                {market.asks ? market.asks.toString() : ""}
-                <p className="font-bold">Event Heap </p>
-                {market.asks ? market.eventHeap.toString() : ""}
-              </div>
-
-              <div className="">
-                <p className="font-bold">Base Deposits </p>
-                {market.asks ? market.baseDepositTotal.toString() : ""}
-                <p className="font-bold">Quote Deposits </p>
-                {market.asks ? market.quoteDepositTotal.toString() : ""}
-                <p className="font-bold">Taker Fees </p>
-                {market.asks ? market.takerFee.toString() : ""}
-                <p className="font-bold">Maker Fees </p>
-                {market.asks ? market.makerFee.toString() : ""}
-                <p className="font-bold">Base Lot Size </p>
-                {market.asks ? market.baseLotSize.toString() : ""}
-                <p className="font-bold">Quote Lot Size </p>
-                {market.asks ? market.quoteLotSize.toString() : ""}
-                <p className="font-bold">Base Decimals </p>
-                {market.asks ? market.baseDecimals : ""}
-                <p className="font-bold">Quote Decimals </p>
-                {market.asks ? market.quoteDecimals : ""}
-              </div>
-            </div>
-
-            <button
-              className="items-center text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={(e: any) => crankMarket()}
-            >
-              CRANK
-            </button>
-
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="w-full overflow-y-scroll relative ">
+          <MarketTable
+            columns={columns}
+            fetchMarket={fetchMarket}
+            markets={markets}
+          />
+          {market.asks ? (
             <div>
-              <h3 className="text-center mt-8 mb-5 text-xl">
-                ASKS -------- The Book -------- BIDS
-              </h3>
-            </div>
+              <MarketDetail market={market} crankMarket={crankMarket} />
 
-            <div className="grid grid-cols-2 gap-2 border-2">
-              <Table isStriped selectionMode="single" aria-label="OrderBook">
-                <TableHeader className="text-left" columns={columnsBook}>
-                  {(column) => (
-                    <TableColumn key={column.key}>{column.label}</TableColumn>
-                  )}
-                </TableHeader>
-                <TableBody items={asks}>
-                  {(item) => (
-                    <TableRow key={priceData(item.key)}>
-                      {(columnKey) => (
-                        <TableCell>
-                          {columnKey == "owner"
-                            ? getKeyValue(item, columnKey)
-                                .toString()
-                                .substring(0, 4) +
-                              ".." +
-                              getKeyValue(item, columnKey).toString().slice(-4)
-                            : columnKey == "quantity"
-                            ? getKeyValue(item, columnKey).toString()
-                            : priceDataToUI(item.key)}
-                        </TableCell>
-                      )}
-                    </TableRow>
-                  )}
-                </TableBody>
-              </Table>
-
-              <Table isStriped selectionMode="single" aria-label="OrderBook">
-                <TableHeader columns={columnsBook}>
-                  {(column) => (
-                    <TableColumn key={column.key}>{column.label}</TableColumn>
-                  )}
-                </TableHeader>
-                <TableBody items={bids}>
-                  {(item) => (
-                    <TableRow key={priceData(item.key)}>
-                      {(columnKey) => (
-                        <TableCell>
-                          {columnKey == "owner"
-                            ? getKeyValue(item, columnKey)
-                                .toString()
-                                .substring(0, 4) +
-                              ".." +
-                              getKeyValue(item, columnKey).toString().slice(-4)
-                            : columnKey == "quantity"
-                            ? getKeyValue(item, columnKey).toString()
-                            : priceDataToUI(item.key)}
-                        </TableCell>
-                      )}
-                    </TableRow>
-                  )}
-                </TableBody>
-              </Table>
+              <OrderBook market={market} asks={asks} bids={bids} />
             </div>
-          </div>
-        ) : (
-          <h1 className="text-center">This market has been closed!</h1>
-        )}
-      </div>
+          ) : (
+            <h1 className="text-center">This market has been closed!</h1>
+          )}
+        </div>
+      )}
     </div>
   );
 }

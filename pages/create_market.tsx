@@ -115,7 +115,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setName(e.target.value)}
-                  className="block w-full rounded-md py-1.5 pl-2 pl-2 text-black font-bold shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2  text-black font-bold shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>

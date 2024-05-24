@@ -31,7 +31,8 @@ import Footer from "../components/Footer";
 export default function App({ Component, pageProps }: AppProps) {
   const network = WalletAdapterNetwork.Mainnet;
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
-
+  console.log("ENDPOINT : ", endpoint);
+  console.log("NETOWRK : ", network);
   const wallets = useMemo(() => [new PhantomWalletAdapter()], []);
 
   const ReactUIWalletModalProviderDynamic = dynamic(
@@ -41,7 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 
   return (
-    <ConnectionProvider endpoint={endpoint}>
+    <ConnectionProvider endpoint={NETWORK}>
       <ClientWalletProvider wallets={wallets}>
         <ReactUIWalletModalProviderDynamic>
           <Toaster position="bottom-left" reverseOrder={true} />
