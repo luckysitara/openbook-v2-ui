@@ -27,7 +27,7 @@ function NavBar() {
         </div>
       </div>
       <div className="flex">
-        <WalletMultiButton className="bg-slate-500" />
+        <WalletMultiButton className="bg-violet-500" />
       </div>
 
       {/* </div> */}
