@@ -121,7 +121,7 @@ export default function Home() {
         <div className="flex flex-col w-full h-full relative text-main-text  ">
           <div className="flex h-[58.5vh] ">
             <div className="w-full table-fixed overflow-y-scroll  ">
-              <h1 className="font-bold p-5 text-4xl text-title-text sticky top-0 z-50  border-b border-gray-800">
+              <h1 className="font-bold p-5 text-4xl bg-main-bg text-title-text sticky top-0 z-50  border-b border-gray-800">
                 Open Markets
               </h1>
               <MarketTable

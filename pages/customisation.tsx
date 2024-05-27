@@ -1,10 +1,11 @@
 import { useState } from "react";
+import CustomForm from "../components/CustomForm";
 
 export default function customisation() {
   const [type, setType] = useState("manual");
   return (
     <>
-      <div className="p-4 h-screen text-main-text mb-8">
+      <div className="p-4 h-screen text-main-text mb-32">
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 p-5">
             <h2 className="leading-7 font-bold text-5xl text-title-text mb-4">
@@ -19,7 +20,7 @@ export default function customisation() {
                 onClick={() => setType("manual")}
                 className={`${
                   type == "manual" ? "bg-hover-one" : "bg-secondary-bg"
-                } px-8 py-2 bg-secondary-bg rounded-lg hover:bg-hover-one hover:text-hover-two`}
+                } px-8 py-2  rounded-lg hover:bg-hover-one hover:text-hover-two`}
               >
                 Manual Customisation
               </button>
@@ -27,7 +28,7 @@ export default function customisation() {
                 onClick={() => setType("auto")}
                 className={`${
                   type == "auto" ? "bg-hover-one" : "bg-secondary-bg"
-                } px-8 py-2 bg-secondary-bg rounded-lg hover:bg-hover-one hover:text-hover-two`}
+                } px-8 py-2 rounded-lg hover:bg-hover-one hover:text-hover-two`}
               >
                 Automatic Customisation
               </button>
@@ -117,7 +118,7 @@ export default function customisation() {
               </div>
             </div>
             <div className={`${type == "auto" ? "block" : "hidden"}`}>
-              <p>auto </p>
+              <CustomForm />
             </div>
           </div>
         </div>
