@@ -5,7 +5,7 @@ export default function MarketDetail({ market }) {
     <>
       <div className="grid grid-cols-1 gap-4 p-6  border-l border-gray-800 w-1/5 overflow-x-auto text-sm text-[#a49ac2] bg-[#30273c]">
         <div className="flex flex-col items-start break-words whitespace-normal border-b-2 border-gray-800">
-          <p className="mb-3 text-xl text-violet-400 font-bold">
+          <p className="mb-3 text-xl text-title-text font-bold">
             {market.asks ? nameToString(market.name) : ""}
           </p>
         </div>

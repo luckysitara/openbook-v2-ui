@@ -90,10 +90,10 @@ const CreateMarket = () => {
   };
 
   return (
-    <form className="p-4 text-[#b2aacd] bg-[#1e1924]">
+    <form className="p-4 text-main-text ">
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className=" leading-7 font-bold p-5 text-5xl text-violet-400 ">
+          <h2 className=" leading-7 font-bold p-5 text-5xl text-title-text ">
             Create a market
           </h2>
           <p className="mt-1 text-sm leading-6 text-grey-600 px-5 w-[70%]">
@@ -115,7 +115,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setName(e.target.value)}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -131,7 +131,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setQuoteMint(new PublicKey(e.target.value))}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -147,7 +147,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setBaseMint(new PublicKey(e.target.value))}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -163,7 +163,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setQuoteLotSize(e.target.value)}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -179,7 +179,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setBaseLotSize(e.target.value)}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -195,7 +195,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setMakerFee(e.target.value)}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -211,7 +211,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setTakerFee(e.target.value)}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -227,7 +227,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setTimeExpiry(e.target.value)}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -243,7 +243,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setOracleA(new PublicKey(e.target.value))}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -259,7 +259,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setOracleB(new PublicKey(e.target.value))}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -275,7 +275,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setMaxStalenessSlots(e.target.value)}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -291,7 +291,7 @@ const CreateMarket = () => {
                 <input
                   type="text"
                   onChange={(e) => setConfFilter(e.target.value)}
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -309,7 +309,7 @@ const CreateMarket = () => {
                   onChange={(e) =>
                     setOpenOrdersAdmin(new PublicKey(e.target.value))
                   }
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -327,7 +327,7 @@ const CreateMarket = () => {
                   onChange={(e) =>
                     setConsumeEventsAdmin(new PublicKey(e.target.value))
                   }
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -345,7 +345,7 @@ const CreateMarket = () => {
                   onChange={(e) =>
                     setCloseMarketAdmin(new PublicKey(e.target.value))
                   }
-                  className="block w-full rounded-md py-1.5 pl-2 bg-[#372f42] outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md py-1.5 pl-2 bg-secondary-bg outline-none text-white font-semibold shadow-sm  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>

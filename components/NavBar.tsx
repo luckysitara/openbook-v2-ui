@@ -2,11 +2,11 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 function NavBar() {
   return (
-    <div className="flex text-[#b2aacd] bg-[#1e1924]  p-2 justify-between items-center border-b border-gray-800 sticky top-0 z-50">
+    <div className="flex text-main-text bg-main-bg  p-2 justify-between items-center border-b border-gray-800 sticky top-0 z-50">
       {/* <div className="border-l bg-slate-900 border-gray-200 p-4 "> */}
       <div className="px-4 text-sm flex items-center">
         <p className="min-w-[40%] mr-6"> Welcome to OpenDex, User !!!</p>
-        <div className="flex items-center  h-12 w-[20vw] px-4 rounded-lg bg-[#483c58] hover:bg-[#5d477c] hover:text-violet-400 transition-all duration-200 cursor-pointer">
+        <div className="flex items-center  h-12 w-[20vw] px-4 rounded-lg bg-secondary-bg hover:bg-hover-one  transition-all duration-200 cursor-pointer">
           <svg
             className="w-6 h-6 stroke-current"
             xmlns="http://www.w3.org/2000/svg"

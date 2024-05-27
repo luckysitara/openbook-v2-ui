@@ -7,7 +7,7 @@ function Sidebar() {
 
   return (
     <div className="w-1/6 md:w-1/12 lg:w-1/6  font-raleway font-semibold border-r border-gray-800 ">
-      <div className="flex flex-col items-center  h-screen overflow-hidden text-[#b2aacd] bg-[#1e1924]">
+      <div className="flex flex-col items-center  h-screen overflow-hidden text-main-text ">
         <a className="flex items-center w-full px-3 mt-3 h-12" href="/">
           <img className="w-8 h-8 rounded-full" src="./logo.png"></img>
           <span className="hidden lg:block ml-2 text-xl font-bold font-raleway text-white">
@@ -18,8 +18,8 @@ function Sidebar() {
           <div className="flex flex-col items-center w-full mt-3 border-t border-gray-700">
             <a
               className={`flex items-center w-full h-12 px-3 mt-2 rounded ${
-                isActivePath("/") ? "bg-[#372f42] text-violet-400" : ""
-              } hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200`}
+                isActivePath("/") ? "bg-secondary-bg text-title-text" : ""
+              } hover:bg-secondary-bg hover:text-title-text transition-all duration-200`}
               href="/"
             >
               <svg
@@ -39,7 +39,7 @@ function Sidebar() {
               <span className="ml-2 text-sm hidden lg:block">Markets</span>
             </a>
             <a
-              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
+              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-secondary-bg hover:text-title-text transition-all duration-200"
               href="#"
             >
               <svg
@@ -63,9 +63,9 @@ function Sidebar() {
             <a
               className={`flex items-center w-full h-12 px-3 mt-2 rounded ${
                 isActivePath("/create_market")
-                  ? "bg-[#372f42] text-violet-400"
+                  ? "bg-secondary-bg text-title-text"
                   : ""
-              } hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200`}
+              } hover:bg-secondary-bg hover:text-title-text transition-all duration-200`}
               href="/create_market"
             >
               <svg
@@ -87,7 +87,7 @@ function Sidebar() {
               </span>
             </a>
             <a
-              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
+              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-secondary-bg hover:text-title-text transition-all duration-200"
               href="https://neif.org"
               target="_blank"
             >
@@ -112,7 +112,7 @@ function Sidebar() {
           </div>
           <div className="flex flex-col items-center w-full mt-2 border-t border-gray-700">
             <a
-              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
+              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-secondary-bg hover:text-title-text transition-all duration-200"
               href="/comingsoon"
             >
               <svg
@@ -133,9 +133,16 @@ function Sidebar() {
                 Products
               </span>
             </a>
+
+            {/* REMOVE THIS CODE AFTER YOUR CUSTOMISATION  */}
+            {/* START HERE */}
             <a
-              className="flex items-center w-full h-12 px-3 rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
-              href="/comingsoon"
+              className={`flex items-center w-full h-12 px-3 mt-2 rounded ${
+                isActivePath("/customisation")
+                  ? "bg-secondary-bg text-title-text"
+                  : ""
+              } hover:bg-secondary-bg hover:text-title-text transition-all duration-200`}
+              href="/customisation"
             >
               <svg
                 className="w-6 h-6 stroke-current"
@@ -152,11 +159,13 @@ function Sidebar() {
                 />
               </svg>
               <span className="ml-2 text-sm font-semibold hidden lg:block">
-                Settings
+                Customize
               </span>
             </a>
+            {/* REMOVE THIS CODE AFTER YOUR CUSTOMISATION  */}
+            {/* END HERE */}
             <a
-              className="relative flex items-center w-full h-12 px-3  rounded hover:bg-[#372f42] hover:text-violet-400 transition-all duration-200"
+              className="relative flex items-center w-full h-12 px-3  rounded hover:bg-secondary-bg hover:text-title-text transition-all duration-200"
               href="/comingsoon"
             >
               <svg
@@ -181,7 +190,7 @@ function Sidebar() {
           </div>
         </div>
         <a
-          className="flex items-center justify-center w-full h-16 mt-auto bg-[#372f42] hover:text-violet-400 cursor-pointer transition-all duration-200"
+          className="flex items-center justify-center w-full h-16 mt-auto bg-secondary-bg hover:text-title-text cursor-pointer transition-all duration-200"
           href="#"
         >
           <svg
