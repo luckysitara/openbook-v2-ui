@@ -11,3 +11,5 @@ npm install
 ```bash
 npm run dev
 ```
+# buy me a coffee with sol @
+FTYW3gGsUbat3UiwjKQqNNPCutzF9CKjXyrrih6Fhx2r
